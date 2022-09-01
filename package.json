@@ -1,14 +1,14 @@
 {
-	"name": "@cipscis/base-package",
+	"name": "@cipscis/working-days",
 	"version": "0.1.0",
-	"description": "This is my base project to use when creating new packages.",
+	"description": "Calculations around working days for the Official Information Act.",
 	"private": true,
-	"browser": "./dist/main-export.js",
+	"browser": "./dist/working-days.js",
 	"type": "module",
 	"files": [
 		"dist/**/*"
 	],
-	"types": "dist/main-export.d.ts",
+	"types": "dist/working-days.d.ts",
 	"scripts": {
 		"server": "node server/server.js",
 		"build": "gulp build",
@@ -25,7 +25,7 @@
 	"author": "Mark Hanna",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cipscis/base-package.git"
+		"url": "https://github.com/cipscis/working-days.git"
 	},
 	"license": "Hippocratic-2.1",
 	"devDependencies": {

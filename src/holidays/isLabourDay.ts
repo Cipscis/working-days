@@ -1,5 +1,5 @@
-import { Month } from '../util/Month';
-import { DayOfWeek } from '../util/DayOfWeek';
+import { Month } from '../util/Month.js';
+import { DayOfWeek } from '../util/DayOfWeek.js';
 
 /**
  * Returns if a given date is Labour Day.

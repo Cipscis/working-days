@@ -1,4 +1,4 @@
-import { DayOfWeek } from '../util/DayOfWeek';
+import { DayOfWeek } from '../util/DayOfWeek.js';
 
 /**
  * Returns if a given date is a Saturday or a Sunday.

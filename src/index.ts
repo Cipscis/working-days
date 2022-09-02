@@ -1,1 +1,4 @@
-export { WorkingDayDefinition, isWorkingDay } from './isWorkingDay';
+export {
+	WorkingDayDefinition,
+	isWorkingDay,
+} from './isWorkingDay.js';

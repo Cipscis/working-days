@@ -1,12 +1,12 @@
-import { Month } from './util/Month';
+import { Month } from './util/Month.js';
 
-import { isAnzacDay, isMondayAfterAnzacDay } from './holidays/isAnzacDay';
-import { isEasterMonday } from './holidays/isEasterMonday';
-import { isGoodFriday } from './holidays/isGoodFriday';
-import { isMatariki } from './holidays/isMatariki';
-import { isSovereignsBirthday } from './holidays/isSovereignsBirthday';
-import { isMondayAfterWaitangiDay, isWaitangiDay } from './holidays/isWaitangiDay';
-import { isWeekend } from './holidays/isWeekend';
+import { isAnzacDay, isMondayAfterAnzacDay } from './holidays/isAnzacDay.js';
+import { isEasterMonday } from './holidays/isEasterMonday.js';
+import { isGoodFriday } from './holidays/isGoodFriday.js';
+import { isMatariki } from './holidays/isMatariki.js';
+import { isSovereignsBirthday } from './holidays/isSovereignsBirthday.js';
+import { isMondayAfterWaitangiDay, isWaitangiDay } from './holidays/isWaitangiDay.js';
+import { isWeekend } from './holidays/isWeekend.js';
 
 export enum WorkingDayDefinition {
 	/** Official Information Act 1982 */

@@ -1,4 +1,4 @@
-import { Month } from '../util/Month';
+import { Month } from '../util/Month.js';
 
 /**
  * These dates have been transcribed from [Te Kāhui o Matariki Public Holiday Act 2022 Schedule 1](https://www.legislation.govt.nz/act/public/2022/0014/latest/whole.html#LMS557893) on 2022-09-02

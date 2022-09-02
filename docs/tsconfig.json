@@ -13,7 +13,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": "../",
 		"paths": {
-			"@cipscis/working-days": ["./src/working-days.js"]
+			"@cipscis/working-days": ["./src/index.js"]
 		},
 	}
 }

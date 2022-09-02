@@ -3,12 +3,12 @@
 	"version": "0.1.0",
 	"description": "Calculations around working days for the Official Information Act.",
 	"private": true,
-	"browser": "./dist/working-days.js",
+	"browser": "./dist/index.js",
 	"type": "module",
 	"files": [
 		"dist/**/*"
 	],
-	"types": "dist/working-days.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"server": "node server/server.js",
 		"build": "gulp build",

@@ -25,7 +25,7 @@ const config = {
 		fullySpecified: true,
 		plugins: [new ResolveTypeScriptPlugin()],
 		alias: {
-			'@cipscis/working-days': `${srcPath}/working-days.ts`,
+			'@cipscis/working-days': `${srcPath}/index.ts`,
 		},
 	},
 	module: {

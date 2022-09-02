@@ -1,4 +1,4 @@
-import { foo } from '../dist/working-days.js';
+import { foo } from '../dist/index.js';
 
 describe('foo', () => {
 	it('returns true', () => {

@@ -9,10 +9,7 @@ import { isMondayAfterWaitangiDay, isWaitangiDay } from './holidays/isWaitangiDa
 import { isWeekend } from './holidays/isWeekend.js';
 import { isLabourDay } from './holidays/isLabourDay.js';
 
-export enum WorkingDayDefinition {
-	/** Official Information Act 1982 */
-	OIA = 'OIA',
-}
+import { WorkingDayDefinition } from './WorkingDayDefinition.js';
 
 /**
  * Returns if a date is a working day according to the Official Information Act 1982.

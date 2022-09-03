@@ -31,8 +31,6 @@ const PaschalFullMoonDates: Record<number, [Month, number]> = {
 /**
  * Returns if a given date is Easter Sunday.
  *
- * **Warning**: This function's results are only correct for dates from 1900-2199.
- *
  * As far as I can find, there is no definition of when Easter Sunday occurs in New Zealand law.
  *
  * If it isn't defined, common law fills the gap, and it would likely be interpreted based on "ordinary usage".
@@ -40,8 +38,19 @@ const PaschalFullMoonDates: Record<number, [Month, number]> = {
  * Using the Gregorian calendar, which aligns with common practice in New Zealand, Easter Sunday is calculated as falling on the Sunday following the "Paschal Full Moon".
  *
  * The method of calculating this date used here was taken from [Easter Dating Method - Astronomical Society of South Australia](https://web.archive.org/web/20220902043829/https://www.assa.org.au/edm)
+ *
+ * @throws {RangeError} This function can only calculate Easter for dates from 1900-2199.
  */
 export function isEasterSunday(date: Date): boolean {
+	const year = date.getFullYear();
+
+	if (
+		year < 1900 ||
+		year > 2199
+	) {
+		throw new RangeError(`Dates for Easter outside the years 1900-2199 have not been defined.`);
+	}
+
 	const month = date.getMonth();
 
 	// Easter Sunday is always in March or April
@@ -52,7 +61,6 @@ export function isEasterSunday(date: Date): boolean {
 		return false;
 	}
 
-	const year = date.getFullYear();
 	const dayOfMonth = date.getDate();
 
 	const yearMod = year % 19;

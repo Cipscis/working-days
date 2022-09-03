@@ -42,7 +42,7 @@ const MatarikiSchedule: Record<number, [Month, number]> = {
  *
  * Definition taken from [Te Kāhui o Matariki Public Holiday Act 2022 section 5](https://www.legislation.govt.nz/act/public/2022/0014/latest/whole.html#LMS557846)
  *
- * **Warning**: This function will throw an error for years after 2052. At the time of writing, dates for Matariki following 2052 have not been defined.
+ * @throws {RangeError} At the time of writing, dates for Matariki following 2052 have not been defined. This function will throw a `RangeError` for years after 2052.
  */
 export function isMatariki(date: Date): boolean {
 	// [Te Kāhui o Matariki Public Holiday Act 2022 section 5](https://www.legislation.govt.nz/act/public/2022/0014/latest/whole.html#LMS557846)
@@ -68,7 +68,7 @@ export function isMatariki(date: Date): boolean {
 	} else {
 		// [Te Kāhui o Matariki Public Holiday Act 2022 section 6](https://www.legislation.govt.nz/act/public/2022/0014/latest/whole.html#LMS557847)
 		// > The Governor-General may, by Order in Council made on the recommendation of the Minister, make regulations adding to Schedule 1 a date in a year on which the public holiday will be observed to acknowledge Matariki in that year.
-		throw new Error(`The date for Matariki in the year ${year} is unknown`);
+		throw new RangeError(`The date for Matariki in the year ${year} is unknown`);
 	}
 
 	return false;

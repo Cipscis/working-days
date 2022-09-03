@@ -13,7 +13,7 @@
 			<div class="content">
 				<h1>Working Days documentation</h1>
 
-				<p>Explain what your package does.</p>
+				<p>This package is an example of <em>legislation as code</em>, and can be used to determine whether or not a given day qualifies as a <strong>working day</strong>, as defined in the legislation of Aotearoa New Zealand.</p>
 			</div>
 		</section>
 
@@ -22,45 +22,45 @@
 				<h2>Methods</h2>
 			</div>
 
-			<section id="methodName">
+			<section id="isWorkingDay">
 				<div class="content">
-					<h3>methodName</h3>
+					<h3>isWorkingDay</h3>
 
-					<code>methodName(argA: any, argB: any) => any</code>
+					<code class="code--block">isWorkingDay(date: Date, definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a> = <a href="#WorkingDayDefinition">WorkingDayDefinition</a>.OIA) => boolean</code>
 
-					<p>Explain what the method does.</p>
+					<p>Determines whether or not a given date qualifies as a <strong>working day</strong>, for a given definition. By default, the definition of <strong>working day</strong> used by the Official Information Act 1982 will be used.</p>
 
 					<h4>Arguments</h4>
 
-					<h5><code>argA: any</code></h5>
+					<h5><code>date: Date</code></h5>
 
-					<p>Explain what the argument does.</p>
+					<p>A <code>Date</code> that may or may not be a working day. Only the year, month, and day portion of the <code>Date</code> will be used.</p>
 
-					<h5><code>argB: any</code></h5>
+					<h5><code>definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a></code></h5>
 
-					<p>Explain what the argument does.</p>
+					<p>The definition of <strong>working day</strong> to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.</p>
+
+					<h4>Limitations</h4>
+
+					<p>Some definitions of days which are not working days under the Official Information Act 1982 are not defined outside certain date ranges.</p>
+
+					<h5>Sovereign's Birthday</h5>
+
+					<p>Dates in the year 1953, or prior to 1952, will throw a <code>RangeError</code> due to a lack of a definition for the <i>Sovereign's Birthday</i>.</p>
+
+					<p>This date is also defined for years after 1953 only <q>in respect of every year of the reign of Her Majesty Queen Elizabeth the Second</q>, so once Elizabeth II dies or is otherwise no longer the Queen of New Zealand, this definition will become invalid.</p>
+
+					<h5>Matariki</h5>
+
+					<p>The dates of Matariki are, at the time of writing, defined only up to the year 2052. Dates from 2053 onward will throw a <code>RangeError</code> due to a lack of a definition for <i>Matariki</i>.</p>
 
 					<h4>Examples</h4>
 
-					<p>Put an example here, using code in <code>/docs/assets/js/src/docs-script.js</code>.</p>
-				</div>
-			</section>
-		</section>
+					<p>Select a date to see whether or not it is considered a working day according to the definition under the Official Information Act 1982.</p>
 
-		<section>
-			<div class="content">
-				<h2>Interfaces</h2>
-			</div>
+					<input type="date" id="example-date" />
 
-			<section id="InterfaceName">
-				<div class="content">
-					<h3>InterfaceName</h3>
-
-					<code>interface InterfaceName {
-	propName: any;
-}</code>
-
-					<p>Explain what the interface is for.</p>
+					<p id="example-date-output"></p>
 				</div>
 			</section>
 		</section>
@@ -70,15 +70,17 @@
 				<h2>Enums</h2>
 			</div>
 
-			<section id="EnumName">
+			<section id="WorkingDayDefinition">
 				<div class="content">
-					<h3>EnumName</h3>
+					<h3>WorkingDayDefinition</h3>
 
-					<code>enum EnumName {
-	VALUE,
+					<code class="code--block">enum WorkingDayDefinition {
+	OIA,
 }</code>
 
-					<p>Explain how the enum should be used.</p>
+					<p>This enum's members can be used when calling <code><a href="#isWorkingDay">isWorkingDay</a></code> to specify a definition of <strong>working day</strong> to be used.</p>
+
+					<p>Currently, only the definition used by the Official Information Act 1982 is supported.</p>
 				</div>
 			</section>
 		</section>

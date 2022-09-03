@@ -7,6 +7,7 @@ import { isMatariki } from './holidays/isMatariki.js';
 import { isSovereignsBirthday } from './holidays/isSovereignsBirthday.js';
 import { isMondayAfterWaitangiDay, isWaitangiDay } from './holidays/isWaitangiDay.js';
 import { isWeekend } from './holidays/isWeekend.js';
+import { isLabourDay } from './holidays/isLabourDay.js';
 
 export enum WorkingDayDefinition {
 	/** Official Information Act 1982 */
@@ -29,17 +30,26 @@ function isWorkingDayOia(date: Date): boolean {
 	*/
 
 	// (a)
-	if (isWeekend(date)) { return false; }
-	if (isWaitangiDay(date)) { return false; }
-	if (isGoodFriday(date)) { return false; }
-	if (isEasterMonday(date)) { return false; }
-	if (isAnzacDay(date)) { return false; }
-	if (isSovereignsBirthday(date)) { return false; }
-	if (isMatariki(date)) { return false; }
+	if (
+		isWeekend(date) ||
+		isWaitangiDay(date) ||
+		isGoodFriday(date) ||
+		isEasterMonday(date) ||
+		isAnzacDay(date) ||
+		isSovereignsBirthday(date) ||
+		isMatariki(date) ||
+		isLabourDay(date)
+	) {
+		return false;
+	}
 
 	// (ab)
-	if (isMondayAfterAnzacDay(date)) { return false; }
-	if (isMondayAfterWaitangiDay(date)) { return false; }
+	if (
+		isMondayAfterAnzacDay(date) ||
+		isMondayAfterWaitangiDay(date)
+	) {
+		return false;
+	}
 
 	// (b)
 	if (

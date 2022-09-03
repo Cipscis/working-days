@@ -1,8 +1,7 @@
 {
 	"name": "@cipscis/working-days",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Calculations around working days for the Official Information Act.",
-	"private": true,
 	"browser": "./dist/index.js",
 	"type": "module",
 	"files": [

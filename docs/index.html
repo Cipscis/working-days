@@ -96,6 +96,35 @@
 					<p id="example-range-output"></p>
 				</div>
 			</section>
+
+			<section id="addWorkingDays">
+				<div class="content">
+					<h3>addWorkingDays</h3>
+
+					<code class="code--block">addWorkingDays(startDate: Date, numWorkingDays: number, definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a> = <a href="#WorkingDayDefinition">WorkingDayDefinition</a>.OIA) => number</code>
+
+					<p>Determines what the date will be after a specified number of working days from a start date, for a given definition of working day. By default, the definition of <strong>working day</strong> used by the Official Information Act 1982 will be used.</p>
+
+					<h4>Arguments</h4>
+
+					<h5><code>startDate: Date</code></h5>
+
+					<p> The <code>Date</code> from which to start.</p>
+
+					<h5><code>numWorkingDays: number</code></h5>
+
+					<p>The number of working days to count after the starting date.</p>
+
+					<h5><code>definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a></code></h5>
+
+					<p>The definition of <strong>working day</strong> to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.</p>
+
+					<input type="date" id="example-extend-start" />
+					<input type="number" step="1" value="20" id="example-extend-number" />
+
+					<p id="example-extend-output"></p>
+				</div>
+			</section>
 		</section>
 
 		<section>

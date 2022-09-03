@@ -54,6 +54,10 @@
 
 					<p>The dates of Matariki are, at the time of writing, defined only up to the year 2052. Dates from 2053 onward will throw a <code>RangeError</code> due to a lack of a definition for <i>Matariki</i>.</p>
 
+					<h5>Easter</h5>
+
+					<p>The method used for calculating Easter dates is only correct for the years 1900-2199. Dates outside this range will throw a <code>RangeError</code>.</p>
+
 					<h4>Examples</h4>
 
 					<p>Select a date to see whether or not it is considered a working day according to the definition under the Official Information Act 1982.</p>
@@ -61,6 +65,64 @@
 					<input type="date" id="example-date" />
 
 					<p id="example-date-output"></p>
+				</div>
+			</section>
+
+			<section id="workingDaysBetween">
+				<div class="content">
+					<h3>workingDaysBetween</h3>
+
+					<code class="code--block">workingDaysBetween(startDate: Date, endDate: Date, definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a> = <a href="#WorkingDayDefinition">WorkingDayDefinition</a>.OIA) => number</code>
+
+					<p>Counts the number of working days between two dates, for a given definition. By default, the definition of <strong>working day</strong> used by the Official Information Act 1982 will be used.</p>
+
+					<h4>Arguments</h4>
+
+					<h5><code>startDate: Date</code></h5>
+
+					<p>The first <code>Date</code> in a range to count working days between.</p>
+
+					<h5><code>endDate: Date</code></h5>
+
+					<p>The last <code>Date</code> in a range to count working days between.</p>
+
+					<h5><code>definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a></code></h5>
+
+					<p>The definition of <strong>working day</strong> to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.</p>
+
+					<input type="date" id="example-range-start" />
+					<input type="date" id="example-range-end" />
+
+					<p id="example-range-output"></p>
+				</div>
+			</section>
+
+			<section id="addWorkingDays">
+				<div class="content">
+					<h3>addWorkingDays</h3>
+
+					<code class="code--block">addWorkingDays(startDate: Date, numWorkingDays: number, definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a> = <a href="#WorkingDayDefinition">WorkingDayDefinition</a>.OIA) => number</code>
+
+					<p>Determines what the date will be after a specified number of working days from a start date, for a given definition of working day. By default, the definition of <strong>working day</strong> used by the Official Information Act 1982 will be used.</p>
+
+					<h4>Arguments</h4>
+
+					<h5><code>startDate: Date</code></h5>
+
+					<p> The <code>Date</code> from which to start.</p>
+
+					<h5><code>numWorkingDays: number</code></h5>
+
+					<p>The number of working days to count after the starting date.</p>
+
+					<h5><code>definition: <a href="#WorkingDayDefinition">WorkingDayDefinition</a></code></h5>
+
+					<p>The definition of <strong>working day</strong> to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.</p>
+
+					<input type="date" id="example-extend-start" />
+					<input type="number" step="1" value="20" id="example-extend-number" />
+
+					<p id="example-extend-output"></p>
 				</div>
 			</section>
 		</section>

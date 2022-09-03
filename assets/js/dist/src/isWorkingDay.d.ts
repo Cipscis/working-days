@@ -1,11 +1,8 @@
-export declare enum WorkingDayDefinition {
-    /** Official Information Act 1982 */
-    OIA = "OIA"
-}
+import { WorkingDayDefinition } from './WorkingDayDefinition.js';
 /**
- * Returns if a date is a working day under a given legislative definition of *working day*.
+ * Determines whether or not a given date qualifies as a working day, for a given definition.
  *
- * @param {Date} date - The date to be tested.
- * @param {WorkingDayDefinition} definition - The definition of *working day* to be used.
+ * @param {Date} date - A `Date` that may or may not be a working day. Only the year, month, and day portion of the `Date` will be used.
+ * @param {WorkingDayDefinition} [definition=WorkingDayDefinition.OIA] - The definition of **working day** to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.
  */
 export declare function isWorkingDay(date: Date, definition?: WorkingDayDefinition): boolean;

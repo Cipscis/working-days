@@ -9,6 +9,7 @@ import { isWorkingDay } from './isWorkingDay.js';
  * @param {WorkingDayDefinition} [definition=WorkingDayDefinition.OIA] - The definition of **working day** to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.
  */
 export function workingDaysBetween(startDate: Date, endDate: Date, definition: WorkingDayDefinition = WorkingDayDefinition.OIA): number {
+	// TODO: Update to allow LGOIMA definition
 	if (startDate > endDate) {
 		[startDate, endDate] = [endDate, startDate];
 	}

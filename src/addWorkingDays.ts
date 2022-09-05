@@ -9,6 +9,7 @@ import { workingDaysBetween } from './workingDaysBetween.js';
  * @param {WorkingDayDefinition} [definition=WorkingDayDefinition.OIA] - The definition of **working day** to use in the determination. If this argument is ommitted, the definition used by the Official Information Act 1982 will be used.
  */
 export function addWorkingDays(startDate: Date, numWorkingDays: number, definition: WorkingDayDefinition = WorkingDayDefinition.OIA): Date {
+	// TODO: Update to allow LGOIMA definition
 	numWorkingDays = Math.floor(numWorkingDays);
 
 	// Strip down to date portion only

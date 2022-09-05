@@ -1,4 +1,4 @@
-import { isSovereignsBirthday } from '../dist/holidays/isSovereignsBirthday.js';
+import { isSovereignsBirthday } from '../dist/holidays/sovereignsBirthday.js';
 
 describe('isSovereignsBirthday', () => {
 	it(`correctly identifies the Sovereign's Birthday`, () => {

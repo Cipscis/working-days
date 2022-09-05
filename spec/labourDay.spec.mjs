@@ -1,4 +1,4 @@
-import { isLabourDay } from '../dist/holidays/isLabourDay.js';
+import { isLabourDay } from '../dist/holidays/labourDay.js';
 
 describe('isLabourDay', () => {
 	it(`correctly identifies Labour Day`, () => {

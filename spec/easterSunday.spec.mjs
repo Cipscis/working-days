@@ -1,4 +1,4 @@
-import { isEasterSunday } from '../dist/holidays/isEasterSunday.js';
+import { isEasterSunday } from '../dist/holidays/easterSunday.js';
 
 describe('isEasterSunday', () => {
 	it(`correctly identifies Easter Sunday`, () => {
@@ -63,6 +63,12 @@ describe('isEasterSunday', () => {
 			[2042, 3, 5],
 		];
 
+		for (const easterParts of notEasterDates) {
+			const easter = new Date(...easterParts);
+			expect(isEasterSunday(easter)).toBe(false);
+		}
+
+		// Check a second time to verify that cache retrieval method works
 		for (const easterParts of notEasterDates) {
 			const easter = new Date(...easterParts);
 			expect(isEasterSunday(easter)).toBe(false);

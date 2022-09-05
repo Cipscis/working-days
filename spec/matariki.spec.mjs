@@ -1,4 +1,4 @@
-import { isMatariki } from '../dist/holidays/isMatariki.js';
+import { isMatariki } from '../dist/holidays/matariki.js';
 
 describe('isMatariki', () => {
 	it(`correctly identifies Matariki`, () => {

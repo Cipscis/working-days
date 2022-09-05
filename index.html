@@ -169,6 +169,30 @@
 
 		<section>
 			<div class="content">
+				<h2>Interfaces</h2>
+			</div>
+
+			<section id="DateTuple">
+				<div class="content">
+					<h3>DateTuple</h3>
+
+					<code class="code--block">type DateTuple = [
+	number, // year
+	number, // month
+	number, // day
+];</code>
+
+					<p>The <code>DateTuple</code> interface is used in place of <code>Date</code> to refer to just the date portion of a <code>Date</code>, ignoring any time or regional information.</p>
+
+					<p>The three numbers correspond with the values that would be returned by <code>Date.getFullYear()</code>, <code>Date.getMonth()</code>, and <code>Date.getDate()</code>, respectively.</p>
+
+					<p>A <code>Date</code> can be constructed from a <code>DateTuple</code> if required via <code>new Date(...tuple)</code></p>
+				</div>
+			</section>
+		</section>
+
+		<section>
+			<div class="content">
 				<h2>Enums</h2>
 			</div>
 
@@ -183,6 +207,29 @@
 					<p>This enum's members can be used when calling <code><a href="#isWorkingDay">isWorkingDay</a></code> to specify a definition of <strong>working day</strong> to be used.</p>
 
 					<p>Currently, only the definition used by the Official Information Act 1982 is supported.</p>
+				</div>
+			</section>
+
+			<section id="Holiday">
+				<div class="content">
+					<h3>Holiday</h3>
+
+					<code class="code--block">enum Holiday {
+	ANZAC_DAY,
+	ANZAC_DAY_MONDAYISED,
+	WAITANGI_DAY,
+	WAITANGI_DAY_MONDAYISED,
+
+	GOOD_FRIDAY,
+	EASTER_SUNDAY,
+	EASTER_MONDAY,
+
+	LABOUR_DAY,
+	MATARIKI,
+	SOVEREIGNS_BIRTHDAY,
+}</code>
+
+					<p>This enum's members can be used when calling <code><a href="#getHoliday">getHoliday</a></code> to specify a holiday to get the date of.</p>
 				</div>
 			</section>
 		</section>

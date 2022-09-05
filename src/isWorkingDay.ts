@@ -10,7 +10,7 @@ import { isWaitangiDay, isWaitangiDayMondayised } from './holidays/waitangiDay.j
 import { isWeekend } from './holidays/isWeekend.js';
 import { isLabourDay } from './holidays/labourDay.js';
 
-import { isAucklandAnniversaryDay } from './holidays/aucklandAnniversaryDay.js';
+import { isProvincialAnniversaryDay } from './holidays/provincialAnniversaryDay.js';
 
 import { WorkingDayDefinition } from './WorkingDayDefinition.js';
 

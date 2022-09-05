@@ -1,7 +1,7 @@
 import {
 	isWaitangiDay,
-	isMondayAfterWaitangiDay,
-} from '../dist/holidays/isWaitangiDay.js';
+	isWaitangiDayMondayised,
+} from '../dist/holidays/waitangiDay.js';
 
 describe('isWaitangiDay', () => {
 	it(`correctly identifies Waitangi Day`, () => {
@@ -26,7 +26,7 @@ describe('isWaitangiDay', () => {
 	});
 });
 
-describe('isMondayAfterWaitangiDay', () => {
+describe('isWaitangiDayMondayised', () => {
 	it(`correctly identifies Mondayised Waitangi Day`, () => {
 		// Dates looked up manually for each year.
 		const mondayDates = [
@@ -40,13 +40,19 @@ describe('isMondayAfterWaitangiDay', () => {
 
 		for (const mondayParts of mondayDates) {
 			const anzacMonday = new Date(...mondayParts);
-			expect(isMondayAfterWaitangiDay(anzacMonday)).toBe(true);
+			expect(isWaitangiDayMondayised(anzacMonday)).toBe(true);
+		}
+
+		// Check a second time to verify that cache retrieval method works
+		for (const mondayParts of mondayDates) {
+			const anzacMonday = new Date(...mondayParts);
+			expect(isWaitangiDayMondayised(anzacMonday)).toBe(true);
 		}
 	});
 
 	it(`correctly identifies when dates are not Mondayised Waitangi Day`, () => {
 		for (let year = 2020; year < 2050; year++) {
-			expect(isMondayAfterWaitangiDay(new Date(year, 1, 6))).toBe(false);
+			expect(isWaitangiDayMondayised(new Date(year, 1, 6))).toBe(false);
 		}
 	});
 });

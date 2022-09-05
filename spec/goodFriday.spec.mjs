@@ -1,4 +1,4 @@
-import { isGoodFriday } from '../dist/holidays/isGoodFriday.js';
+import { isGoodFriday } from '../dist/holidays/goodFriday.js';
 
 describe('isGoodFriday', () => {
 	it(`correctly identifies Good Friday`, () => {
@@ -63,6 +63,12 @@ describe('isGoodFriday', () => {
 			[2042, 3, 3],
 		];
 
+		for (const easterParts of notEasterDates) {
+			const easter = new Date(...easterParts);
+			expect(isGoodFriday(easter)).toBe(false);
+		}
+
+		// Check a second time to verify that cache retrieval method works
 		for (const easterParts of notEasterDates) {
 			const easter = new Date(...easterParts);
 			expect(isGoodFriday(easter)).toBe(false);

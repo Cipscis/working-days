@@ -1,7 +1,7 @@
 import {
 	isAnzacDay,
-	isMondayAfterAnzacDay,
-} from '../dist/holidays/isAnzacDay.js';
+	isAnzacDayMondayised,
+} from '../dist/holidays/anzacDay.js';
 
 describe('isAnzacDay', () => {
 	it(`correctly identifies Anzac Day`, () => {
@@ -26,7 +26,7 @@ describe('isAnzacDay', () => {
 	});
 });
 
-describe('isMondayAfterAnzacDay', () => {
+describe('isAnzacDayMondayised', () => {
 	it(`correctly identifies Mondayised Anzac Day`, () => {
 		// Dates looked up manually for each year.
 		const mondayDates = [
@@ -41,13 +41,18 @@ describe('isMondayAfterAnzacDay', () => {
 
 		for (const mondayParts of mondayDates) {
 			const anzacMonday = new Date(...mondayParts);
-			expect(isMondayAfterAnzacDay(anzacMonday)).toBe(true);
+			expect(isAnzacDayMondayised(anzacMonday)).toBe(true);
 		}
 	});
 
 	it(`correctly identifies when dates are not Mondayised Anzac Day`, () => {
 		for (let year = 2020; year < 2050; year++) {
-			expect(isMondayAfterAnzacDay(new Date(year, 3, 25))).toBe(false);
+			expect(isAnzacDayMondayised(new Date(year, 3, 25))).toBe(false);
+		}
+
+		// Check a second time to verify that cache retrieval method works
+		for (let year = 2020; year < 2050; year++) {
+			expect(isAnzacDayMondayised(new Date(year, 3, 25))).toBe(false);
 		}
 	});
 });

@@ -1,13 +1,13 @@
 import { Month } from './util/Month.js';
 
-import { isAnzacDay, isMondayAfterAnzacDay } from './holidays/isAnzacDay.js';
-import { isEasterMonday } from './holidays/isEasterMonday.js';
-import { isGoodFriday } from './holidays/isGoodFriday.js';
-import { isMatariki } from './holidays/isMatariki.js';
-import { isSovereignsBirthday } from './holidays/isSovereignsBirthday.js';
-import { isMondayAfterWaitangiDay, isWaitangiDay } from './holidays/isWaitangiDay.js';
+import { isAnzacDay, isAnzacDayMondayised } from './holidays/anzacDay.js';
+import { isEasterMonday } from './holidays/easterMonday.js';
+import { isGoodFriday } from './holidays/goodFriday.js';
+import { isMatariki } from './holidays/matariki.js';
+import { isSovereignsBirthday } from './holidays/sovereignsBirthday.js';
+import { isWaitangiDay, isWaitangiDayMondayised } from './holidays/waitangiDay.js';
 import { isWeekend } from './holidays/isWeekend.js';
-import { isLabourDay } from './holidays/isLabourDay.js';
+import { isLabourDay } from './holidays/labourDay.js';
 
 import { WorkingDayDefinition } from './WorkingDayDefinition.js';
 
@@ -42,8 +42,8 @@ function isWorkingDayOia(date: Date): boolean {
 
 	// (ab)
 	if (
-		isMondayAfterAnzacDay(date) ||
-		isMondayAfterWaitangiDay(date)
+		isAnzacDayMondayised(date) ||
+		isWaitangiDayMondayised(date)
 	) {
 		return false;
 	}

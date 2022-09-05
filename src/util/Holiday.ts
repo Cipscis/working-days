@@ -1,3 +1,4 @@
+/** A type of holiday that can occur once in a given year. */
 export enum Holiday {
 	ANZAC_DAY,
 	ANZAC_DAY_MONDAYISED,

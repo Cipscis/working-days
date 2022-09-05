@@ -109,7 +109,7 @@
 
 					<h5><code>startDate: Date</code></h5>
 
-					<p> The <code>Date</code> from which to start.</p>
+					<p>The <code>Date</code> from which to start.</p>
 
 					<h5><code>numWorkingDays: number</code></h5>
 
@@ -123,6 +123,46 @@
 					<input type="number" step="1" value="20" id="example-extend-number" />
 
 					<p id="example-extend-output"></p>
+				</div>
+			</section>
+
+			<section id="getHoliday">
+				<div class="content">
+					<h3>getHoliday</h3>
+
+					<code class="code--block">getHoliday(holiday: <a href="#Holiday">Holiday</a>, year: number): <a href="#DateTuple">DateTuple</a> | null</code>
+
+					<p>Returns the specified holiday for the specified year.</p>
+
+					<p>Some holidays, such as Mondayised Anzac Day, may not exist in each year. In these cases, this function can return <code>null</code>.</p>
+
+					<p>Other holidays have specific restrictions under which they will throw errors. For example, Matariki is not currently defined for years after 2052, so attempting to get the date of Matariki after 2052 will throw a <code>RangeError</code>.</p>
+
+					<h4>Arguments</h4>
+
+					<h5><code>holiday: <a href="#Holiday">Holiday</a></code></h5>
+
+					<p>The holiday you want to retrieve, specified using the <a href="#Holiday">Holiday</a> enum exported by this package.</p>
+
+					<h5><code>year: number</code></h5>
+
+					<p>The year in which you want to get the date of the specified holiday.</p>
+
+					<input type="number" step="1" value="2022" id="example-get-year" />
+					<select id="example-get-holiday">
+						<option value="0">Anzac Day</option>
+						<option value="1">Anzac Day (Mondayised)</option>
+						<option value="2">Waitangi Day</option>
+						<option value="3">Waitangi Day (Mondayised)</option>
+						<option value="4">Good Friday</option>
+						<option value="5">Easter Sunday</option>
+						<option value="6">Easter Monday</option>
+						<option value="7">Labour Day</option>
+						<option value="8">Matariki</option>
+						<option value="9">Sovereign's Birthday</option>
+					</select>
+
+					<p id="example-get-output"></p>
 				</div>
 			</section>
 		</section>

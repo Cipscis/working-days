@@ -2,6 +2,8 @@ import {
 	isWorkingDay,
 	workingDaysBetween,
 	addWorkingDays,
+	getHoliday,
+	Holiday,
 } from '@cipscis/working-days';
 
 const Selectors = Object.freeze({
@@ -15,6 +17,10 @@ const Selectors = Object.freeze({
 	EXTEND_START: '#example-extend-start',
 	EXTEND_NUMBER: '#example-extend-number',
 	EXTEND_OUTPUT: '#example-extend-output',
+
+	GET_YEAR: '#example-get-year',
+	GET_HOLIDAY: '#example-get-holiday',
+	GET_OUTPUT: '#example-get-output',
 });
 
 const validDatePattern = /^\d{4}-\d{2}-\d{2}$/;
@@ -107,6 +113,7 @@ if ($extendStart instanceof HTMLInputElement && $extendNumber instanceof HTMLInp
 						year: 'numeric',
 						month: 'long',
 						day: 'numeric',
+						weekday: 'short',
 					}).format(endDate);
 				} catch (e) {
 					if (e instanceof RangeError) {
@@ -124,4 +131,43 @@ if ($extendStart instanceof HTMLInputElement && $extendNumber instanceof HTMLInp
 
 	$extendStart.addEventListener('input', displayRange);
 	$extendNumber.addEventListener('input', displayRange);
+}
+
+const $getYear = document.querySelector(Selectors.GET_YEAR);
+const $getHoliday = document.querySelector(Selectors.GET_HOLIDAY);
+
+if ($getYear instanceof HTMLInputElement && $getHoliday instanceof HTMLSelectElement) {
+	const getHolidayEvent = function (e: Event) {
+		const $output = document.querySelector(Selectors.GET_OUTPUT);
+
+		if ($output) {
+			const year = Number($getYear.value);
+			const holiday = Number($getHoliday.value) as Holiday;
+
+			try {
+				const holidayDate = getHoliday(holiday, year);
+
+				if (holidayDate) {
+					$output.innerHTML = new Intl.DateTimeFormat('en-NZ', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+						weekday: 'short',
+					}).format(new Date(...holidayDate));
+				} else {
+					$output.innerHTML = `The selected holiday does not occur in the year ${year}`;
+				}
+			} catch (e) {
+				if (e instanceof RangeError) {
+					$output.innerHTML = `RangeError: ${e.message}`;
+				} else {
+					$output.innerHTML = 'An unexpected error was encountered';
+					throw e;
+				}
+			}
+		}
+	}
+
+	$getYear.addEventListener('input', getHolidayEvent);
+	$getHoliday.addEventListener('change', getHolidayEvent);
 }

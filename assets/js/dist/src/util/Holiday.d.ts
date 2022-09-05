@@ -1,0 +1,12 @@
+export declare enum Holiday {
+    ANZAC_DAY = 0,
+    ANZAC_DAY_MONDAYISED = 1,
+    WAITANGI_DAY = 2,
+    WAITANGI_DAY_MONDAYISED = 3,
+    GOOD_FRIDAY = 4,
+    EASTER_SUNDAY = 5,
+    EASTER_MONDAY = 6,
+    LABOUR_DAY = 7,
+    MATARIKI = 8,
+    SOVEREIGNS_BIRTHDAY = 9
+}

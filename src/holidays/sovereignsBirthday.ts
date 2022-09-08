@@ -21,7 +21,7 @@ const sovereignsBirthdays = new Map<number, DateTuple>();
  *
  * @throws {RangeError} This function only defines the Sovereign's Birthday for 1952 and for years after 1953. A `RangeError` will be thrown if dates on non-supported years are used.
  */
-export function getSovereignsBirthday(year: number): DateTuple {
+export function getSovereignsBirthday(year: number): DateTuple | null {
 	const cachedSovereignsBirthday = sovereignsBirthdays.get(year);
 	if (cachedSovereignsBirthday) {
 		return cachedSovereignsBirthday;
@@ -44,6 +44,14 @@ export function getSovereignsBirthday(year: number): DateTuple {
 		// I haven't been able to find this proclamation, nor any information about when the Sovereign's Birthday was observed in 1953.
 
 		throw new RangeError(`The date of the Sovereign's Birthday in 1953 is unknown.`);
+	}
+
+	if (year > 2022) {
+		// [Sovereign's Birthday Observance Act 1952 section 2(c)](https://www.legislation.govt.nz/act/public/1952/0013/latest/whole.html#DLM265809)
+		// > in respect of every year of the reign of Her Majesty Queen Elizabeth the Second after the year 1953, [the Sovereign's birthday shall] be deemed to be... the first Monday in June.
+
+		// Elizabeth II died in September 2022, so until the Sovereign's Birthday Observance Act 1952 is amended there is no defined date for the sovereign's birthday observance day in years after 2022.
+		return null;
 	}
 
 	const sovereignsBirthday = new Date(year, Month.JUNE, 1);
@@ -75,5 +83,9 @@ export function isSovereignsBirthday(date: Date): boolean {
 
 	const dateTuple = makeDateTuple(date);
 
-	return compareDateTuple(sovereignsBirthday, dateTuple);
+	if (sovereignsBirthday) {
+		return compareDateTuple(sovereignsBirthday, dateTuple);
+	} else {
+		return false;
+	}
 }

@@ -8,7 +8,7 @@ import { DateTuple } from '../util/DateTuple.js';
  *
  * @throws {RangeError} This function only defines the Sovereign's Birthday for 1952 and for years after 1953. A `RangeError` will be thrown if dates on non-supported years are used.
  */
-export declare function getSovereignsBirthday(year: number): DateTuple;
+export declare function getSovereignsBirthday(year: number): DateTuple | null;
 /**
  * Returns if a given date is the sovereign's birthday.
  *

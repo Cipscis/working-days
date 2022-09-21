@@ -31,13 +31,13 @@ describe('addWorkingDays', () => {
 				new Date(2022, 8, 3),
 				20
 			)
-		).toEqual(new Date(2022, 8, 30));
+		).toEqual(new Date(2022, 9, 3));
 
 		expect(
 			addWorkingDays(
 				new Date(2022, 8, 30),
 				-20
 			)
-		).toEqual(new Date(2022, 8, 4));
+		).toEqual(new Date(2022, 8, 1));
 	});
 });

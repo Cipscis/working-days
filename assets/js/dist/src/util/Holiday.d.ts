@@ -8,5 +8,6 @@ export declare enum Holiday {
     EASTER_MONDAY = 6,
     LABOUR_DAY = 7,
     MATARIKI = 8,
-    SOVEREIGNS_BIRTHDAY = 9
+    SOVEREIGNS_BIRTHDAY = 9,
+    QUEEN_ELIZABETH_II_MEMORIAL_DAY = 10
 }

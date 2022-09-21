@@ -7,6 +7,7 @@ import { getEasterMonday } from './holidays/easterMonday.js';
 import { getLabourDay } from './holidays/labourDay.js';
 import { getMatariki } from './holidays/matariki.js';
 import { getSovereignsBirthday } from './holidays/sovereignsBirthday.js';
+import { getQueenElizabethIIMemorialDay } from './holidays/queenElizabethIIMemorialDay.js';
 declare const holidayFunctions: {
     readonly 0: typeof getAnzacDay;
     readonly 1: typeof getAnzacDayMondayised;
@@ -18,6 +19,7 @@ declare const holidayFunctions: {
     readonly 7: typeof getLabourDay;
     readonly 8: typeof getMatariki;
     readonly 9: typeof getSovereignsBirthday;
+    readonly 10: typeof getQueenElizabethIIMemorialDay;
 };
 /**
  * Returns the specified holiday for the specified year.

@@ -10,6 +10,7 @@ import { isWeekend } from './holidays/isWeekend.js';
 import { isLabourDay } from './holidays/labourDay.js';
 
 import { WorkingDayDefinition } from './WorkingDayDefinition.js';
+import { isQueenElizabethIIMemorialDay } from './holidays/queenElizabethIIMemorialDay.js';
 
 /**
  * Returns if a date is a working day according to the Official Information Act 1982.
@@ -24,6 +25,11 @@ function isWorkingDayOia(date: Date): boolean {
 		if Waitangi Day or Anzac Day falls on a Saturday or a Sunday, the following Monday; and
 		(b)
 		a day in the period commencing with 25 December in any year and ending with 15 January in the following year.
+	*/
+
+	/* [Queen Elizabeth II Memorial Day Bill Section 8(2)](https://www.legislation.govt.nz/bill/government/2022/0168/latest/whole.html#LMS757117)
+
+	Despite any other legislation or rule of law, Queen Elizabeth II Memorial Day is not a business or working day for the purpose of calculating the time within, by, or no sooner than which a requirement or an obligation to which subsection (1) applies must be performed.
 	*/
 
 	// (a)
@@ -58,6 +64,13 @@ function isWorkingDayOia(date: Date): boolean {
 			date.getMonth() === Month.JANUARY &&
 			date.getDate() <= 15
 		)
+	) {
+		return false;
+	}
+
+	// Queen Elizabeth II Memorial Day Bill Section 8(2)
+	if (
+		isQueenElizabethIIMemorialDay(date)
 	) {
 		return false;
 	}

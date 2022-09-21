@@ -17,6 +17,8 @@ import { getLabourDay } from './holidays/labourDay.js';
 import { getMatariki } from './holidays/matariki.js';
 import { getSovereignsBirthday } from './holidays/sovereignsBirthday.js';
 
+import { getQueenElizabethIIMemorialDay } from './holidays/queenElizabethIIMemorialDay.js';
+
 const holidayFunctions = {
 	[Holiday.ANZAC_DAY]: getAnzacDay,
 	[Holiday.ANZAC_DAY_MONDAYISED]: getAnzacDayMondayised,
@@ -30,6 +32,8 @@ const holidayFunctions = {
 	[Holiday.LABOUR_DAY]: getLabourDay,
 	[Holiday.MATARIKI]: getMatariki,
 	[Holiday.SOVEREIGNS_BIRTHDAY]: getSovereignsBirthday,
+
+	[Holiday.QUEEN_ELIZABETH_II_MEMORIAL_DAY]: getQueenElizabethIIMemorialDay,
 } as const;
 
 /**

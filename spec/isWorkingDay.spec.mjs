@@ -18,7 +18,7 @@ describe('isWorkingDay', () => {
 			date.setDate(date.getDate() + 1);
 		}
 
-		expect(numWorkingDays).toBe(227);
+		expect(numWorkingDays).toBe(226);
 	});
 
 	it(`correctly identifies non-working days according to the OIA definition`, () => {
@@ -30,6 +30,7 @@ describe('isWorkingDay', () => {
 			[2022, 3, 25], // Anzac Day
 			[2022, 5, 6], // Queen's Birthday
 			[2022, 5, 24], // Matariki
+			[2022, 8, 26], // Queen Elizabeth II Memorial Day
 			[2022, 9, 24], // Labour Day
 		];
 
